@@ -1,0 +1,126 @@
+<html class="no-js">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Admin Home</title>
+	<link rel="stylesheet" href="/static/css/animate.css">
+	<!-- Icomoon Icon Fonts-->
+	<link rel="stylesheet" href="/static/css/icomoon.css">
+	<!-- Bootstrap  -->
+	<link rel="stylesheet" href="/static/css/bootstrap.css">
+	<!-- Owl Carousel -->
+	<link rel="stylesheet" href="/static/css/owl.carousel.min.css">
+	<link rel="stylesheet" href="/static/css/owl.theme.default.min.css">
+	<link rel="stylesheet" href="/static/css/style.css">
+	<!-- Modernizr JS -->
+	<script src="/static/js/modernizr-2.6.2.min.js"></script>
+	<!-- FOR IE9 below -->
+	<!--[if lt IE 9]>
+	<script src="js/respond.min.js"></script>
+	<![endif]-->
+	<style>
+	table {
+	  border-collapse: collapse;
+	}
+
+	td, th {
+	  padding: 10px;
+	  border: 1px solid black;
+	}
+	</style>
+
+</head>
+
+<body>
+	<header>
+		<div class="container text-center">
+			<div class="fh5co-navbar-brand">
+				<a class="fh5co-logo" href="index.html">CRIME PREDICTION</a>
+				<br>
+				<a href="index.html">Crime Predictive Model For Hotspot Mapping</a>
+			</div>
+			<nav id="fh5co-main-nav" role="navigation">
+				<ul>
+					<li><a href="admin.html"class="active">Admin Home</a></li>
+					<li><a href="verified.html">Verified Reports</a></li>
+					<li><a href="logout.html">Logout</a></li>
+				</ul>
+			</nav>
+		</div>
+	</header>
+	<div id="fh5co-intro-section">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12 text-center">
+					<h3>"It's not how many criminal you catch, it's how many crime you prevent."</h3>
+					<h4>-Los Angeles, CA PD Charlie Beck</h4>
+				</div>
+			</div>
+		</div>
+	</div><!-- end fh5co-intro-section -->
+	<div align="center">
+		<h1 style="color:green"> {{message}} </h1>
+	</div>
+	<div align="center">
+		<h1>List of Reports</h1>
+	</div>
+
+	<div class="container">
+
+		<div class="form-group">
+			<div align="center">
+
+                <table>
+					<tr>
+						{% for item in head %}
+							<th>{{ item }}</th>
+						{% endfor %}
+					</tr>
+					{% for item in List %}
+						<tr>
+							<form action="/verify" method="POST">
+								{% for i in item %}
+								<td>{{ i }}</td>
+								{% endfor %}
+								<input type="hidden" name="ID" value="{{item[0]}}">
+								<td><button type="submit">Verify</button></td>
+							</form>
+						</tr>
+					{% endfor %}
+
+                </table>
+
+			</div>
+		</div>
+	</div>
+	<footer>
+		<div id="footer" class="fh5co-border-line">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-8 col-md-offset-2 text-center">
+						<p>Project Done By <a>Sunandh Kumar L,Haneesh Chowdary Sriram & Talluri Venkata Hanish</a></p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+
+	<!-- jQuery -->
+	<script src="/static/js/jquery.min.js"></script>
+	<!-- jQuery Easing -->
+	<script src="/static/js/jquery.easing.1.3.js"></script>
+	<!-- Bootstrap -->
+	<script src="/static/js/bootstrap.min.js"></script>
+	<!-- Waypoints -->
+	<script src="/static/js/jquery.waypoints.min.js"></script>
+	<!-- Owl carousel -->
+	<script src="/static/js/owl.carousel.min.js"></script>
+	<!-- Stellar -->
+	<script src="/static/js/jquery.stellar.min.js"></script>
+
+	<!-- Main JS (Do not remove) -->
+	<script src="/static/js/main.js"></script>
+
+</body>
+</html>
